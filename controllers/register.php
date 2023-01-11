@@ -1,5 +1,47 @@
 <?php
 
-require 'views/register.view.php';
+require 'Core/Database.php';
+require 'Core/Validator.php';
 
-require 'Database.php';
+$db = new Database();
+$validator = new Validator();
+
+$name_error = [];
+$email_error = [];
+$password_error = [];
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){ 
+
+    $user_name = $_POST['userName'];
+    $user_email = $_POST['userEmail'];
+    $user_password = $_POST['userPassword'];
+
+    $name = trim($user_name);
+    $password = trim($user_password);
+
+    if($validator::validName($name) === false){
+        $name_error['name'] = 'Name Should 3 to 10 characters long';
+    }
+
+    if(strlen($password) < 8){
+        $password_error['password'] = "Password must be 8 characters long";
+    }
+    
+    if($validator::validEmail($user_email) === false){
+        $email_error['email'] = 'Invalid Email';
+    }
+
+    if(empty($name_error) && empty($email_error) && empty($password_error)){
+        $query = "INSERT INTO `users` (`user_name`, `user_email`, `user_password`) VALUES ('{$user_name}', '{$user_email}', '{$user_password}');";
+        
+        $db->query($query);
+
+        header('Location: /user-register/success');
+        exit();
+    }
+    
+
+}
+
+
+require 'views/register.view.php';

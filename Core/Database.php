@@ -18,20 +18,17 @@ class Database {
         ]);
     }
 
-    public function registerUserQuery($query){
+    public function query($query){
 
         $statement = $this->connection->prepare($query);
         $statement->execute();
+
+        // This will return the rest of methods of the same class means: Database;
+        return $this;
         
     }
 
-    public function fetchQuery($query){
-        
-        $statement = $this->connection->prepare($query);
-        $statement->execute();
-        
-        $users = $statement->fetchAll();
 
-        return $users;
-    }
+
+    
 }

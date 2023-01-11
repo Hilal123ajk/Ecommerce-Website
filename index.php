@@ -1,6 +1,6 @@
 <?php
 
-require 'functions.php';
+require 'Core/functions.php';
 
-require 'router.php';
+require 'Core/router.php';
 
