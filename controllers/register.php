@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $password = trim($user_password);
 
     if($validator::validName($name) === false){
-        $name_error['name'] = 'Name Should 3 to 10 characters long';
+        $name_error['name'] = 'Name Should 3 to 15 characters long';
     }
 
     if(strlen($password) < 8){
@@ -32,12 +32,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 
     if(empty($name_error) && empty($email_error) && empty($password_error)){
-        $query = "INSERT INTO `users` (`user_name`, `user_email`, `user_password`) VALUES ('{$user_name}', '{$user_email}', '{$user_password}');";
-        
-        $db->query($query);
 
-        header('Location: /user-register/success');
-        exit();
+        $email = $db->query("SELECT * FROM users WHERE user_email = '{$user_email}'")->find();
+
+        if( !$email)
+        {
+
+            $query = "INSERT INTO `users` (`user_name`, `user_email`, `user_password`) VALUES ('{$user_name}', '{$user_email}', '{$user_password}');";
+        
+            $db->query($query);
+            header('Location: /user-register/success');
+            exit();
+
+        }else
+        {
+            $email_error['email'] = 'Email alreday exists';
+        }
+
+        
+
+        
     }
     
 

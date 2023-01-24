@@ -1,3 +1,5 @@
+
+
 <nav class="bg-gray-800">
     <div class="flex justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
@@ -22,10 +24,29 @@
         
       </div>
 
-      <div class="register-user">
-      <a href="../user-register"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Register</button></a>
-      <button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Login</button>
+      <div class="register-user <?= isset($_SESSION['loggedin']) ? 'hidden' : '' ?>">
+
+        
+        <a href="../user-register"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Register</button></a>
+        <a href="/user-login"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Login</button></a>
+
+        <!-- if user is loggedin  -->
+
+        
+
+        <!-- if user is loggedin  -->
       </div>
+      
+
+      <div class=" relative rounded-full h-12 w-12 my-2 cursor-pointer <?= isset($_SESSION['loggedin']) ? '' : 'hidden' ?>">
+
+      <img src="public/images/login.png" alt="">
+
+        <!-- <p class="text-2xl font-medium mx-3 my-1"><?php echo isset($_SESSION['loggedin']) ? substr($_SESSION['loggedin']['name'],0,1) : ''; ?></p> -->
+      </div>
+
+
+
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->

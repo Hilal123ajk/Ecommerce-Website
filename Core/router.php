@@ -6,6 +6,7 @@ $routes = [
     '/' => 'controllers/index.php',
     '/about' => 'controllers/about.php',
     '/user-register' => 'controllers/register.php',
+    '/user-login' => 'controllers/login.php',
     '/user-register/success' => 'controllers/register-success.php'
 ];
 
@@ -19,12 +20,12 @@ function routeToController($uri,$routes){
     
     }else{
     
-        abortNotFond();
+        abort();
     
     }
 }
 
-function abortNotFond($code = 404){
+function abort($code = 404){
 
     http_response_code(404);
 

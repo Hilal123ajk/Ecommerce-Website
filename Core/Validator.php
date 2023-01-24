@@ -15,7 +15,7 @@ class Validator {
     
     public static function validName($name){
 
-        if (preg_match("/^[a-zA-Z]{3,10}$/", $name)) {
+        if (preg_match("/^[a-zA-Z\s]{3,15}$/", $name)) {
             return true;
         } else {
             return false;
