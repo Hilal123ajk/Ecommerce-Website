@@ -12,7 +12,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     $user_email = $_POST['userEmail'];
     $user_password = $_POST['userPassword'];
 
-    $user = $db->query("SELECT * FROM users WHERE user_email = '{$user_email}' AND user_password = '{$user_password}';")->find();
+    $user = $db->query("SELECT * FROM users WHERE user_email = :email AND user_password = :password;",[
+        'email' => $user_email,
+        'password' => $user_password
+    ])->find();
 
     if( $user ){
         
