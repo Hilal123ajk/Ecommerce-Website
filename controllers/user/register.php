@@ -38,15 +38,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         ])->find();
 
         if( !$email)
-        {
+        {        
+            $db->query("INSERT INTO `users` (`user_name`, `user_email`, `user_password`) VALUES ('{$user_name}', '{$user_email}', '{$user_password}');");
 
-            $query = "INSERT INTO `users` (`user_name`, `user_email`, `user_password`) VALUES (':userName', ':userEmail', 'userPassword');";
-        
-            $db->query($query, [
-                'userName' => $user_name,
-                'userEmail' => $user_email,
-                'userPassword' => $user_password
-            ]);
             header('Location: /user-register/success');
             exit();
 
