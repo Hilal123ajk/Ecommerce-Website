@@ -30,6 +30,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         ];
 
+
         header('location: /');
         exit();
 
@@ -40,4 +41,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 }
 
 
-require 'views/login.view.php';
+require base_path('/views/user/login.view.php');

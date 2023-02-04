@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sell and buy laptops | Ecommerce site</title>
     <!-- Tailwind CSS CDN link  -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+
+    <!-- Tailwind UI components fonts link  -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    
 </head>
 <body class="h-full">
     

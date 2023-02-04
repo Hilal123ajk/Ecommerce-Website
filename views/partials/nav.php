@@ -6,7 +6,7 @@
 
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <img class="h-14 w-14" src="../public/images/shop-icon.png" alt="Your Company">
+            <img class="h-14 w-14" src="/src/images/shop-icon.png" alt="Your Company">
           </div>
 
           <div class="hidden md:block">
@@ -24,25 +24,43 @@
         
       </div>
 
+      
       <div class="register-user <?= isset($_SESSION['loggedin']) ? 'hidden' : '' ?>">
 
         
         <a href="../user-register"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Register</button></a>
         <a href="/user-login"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Login</button></a>
 
-        <!-- if user is loggedin  -->
-
-        
-
-        <!-- if user is loggedin  -->
+       
       </div>
       
 
       <div class=" relative rounded-full h-12 w-12 my-2 cursor-pointer <?= isset($_SESSION['loggedin']) ? '' : 'hidden' ?>">
 
-      <img src="public/images/login.png" alt="">
 
-        <!-- <p class="text-2xl font-medium mx-3 my-1"><?php echo isset($_SESSION['loggedin']) ? substr($_SESSION['loggedin']['name'],0,1) : ''; ?></p> -->
+      
+        <div>
+          <div class="dropdown relative">
+            
+            <img id="dropdownMenuButton2" src="/src/images/login.png" alt="">
+                
+            <div class="dropdown-menu hidden absolute right-0 z-10 mt-4 w-48 origin-top-right rounded-md bg-slate-700 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                <!-- Active: "bg-gray-100", Not Active: "" -->
+                <a href="/profile" class="block px-4 py-2 text-sm text-slate-100" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
+
+                <a href="/edit-profile?id=<?php echo $_SESSION['loggedin']['id']; ?>" class="block px-4 py-2 text-sm text-slate-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Edit Profile</a>
+
+                
+            </div>
+
+          </div>
+        </div>
+
+      
+
+         
+  
+
       </div>
 
 
@@ -61,3 +79,22 @@
       
     </div>
   </nav>
+
+
+
+  <script>
+
+const dropdownButton = document.querySelector("#dropdownMenuButton2");
+const dropdownMenu = document.querySelector(".dropdown-menu");
+
+dropdownButton.addEventListener("click", function() {
+  dropdownMenu.classList.toggle("hidden");
+});
+
+document.addEventListener("click", function(event) {
+  if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+    dropdownMenu.classList.add("hidden");
+  }
+});
+
+</script>

@@ -1,5 +1,6 @@
 <?php
 
+
 require 'Core/Database.php';
 require 'Core/Validator.php';
 
@@ -39,7 +40,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         if( !$email)
         {        
-            $db->query("INSERT INTO `users` (`user_name`, `user_email`, `user_password`) VALUES ('{$user_name}', '{$user_email}', '{$user_password}');");
+            $db->query("INSERT INTO `users` (`user_name`, `user_email`, `user_password`) VALUES (:name, :email, :password);", [
+                'name' => $user_name,
+                'email' => $user_email,
+                'password' => $user_password
+            ]);
 
             header('Location: /user-register/success');
             exit();
@@ -58,4 +63,4 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 }
 
 
-require 'views/register.view.php';
+require base_path('/views/user/register.view.php');

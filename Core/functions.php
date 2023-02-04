@@ -12,6 +12,12 @@ function dd($value){
 
 }
 
+// For Including Files
+
+function base_path($path){
+    return BASE_PATH . $path;
+}
+
 // Url checking 
 
 function isUrl($value){

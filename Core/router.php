@@ -2,14 +2,7 @@
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$routes = [
-    '/' => 'controllers/index.php',
-    '/about' => 'controllers/about.php',
-    '/user-register' => 'controllers/user/register.php',
-    '/user-login' => 'controllers/user/login.php',
-    '/user-register/success' => 'controllers/user/register-success.php'
-];
-
+$routes = require('routes.php');
 
 
 function routeToController($uri,$routes){

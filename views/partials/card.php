@@ -1,6 +1,6 @@
 
   <div class="max-w-sm mx-auto rounded overflow-hidden shadow-lg">
-    <img class="w-full" src="public/images/hp-laptop.jpg" alt="Sunset in the mountains">
+    <img class="w-full" src="/src/images/hp-laptop.jpg" alt="Sunset in the mountains">
     <div class="px-6 py-4">
       <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
       <p class="text-gray-700 text-base">

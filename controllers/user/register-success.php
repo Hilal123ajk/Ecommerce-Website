@@ -1,4 +1,4 @@
 <?php
 
-require 'views/register-success.view.php';
+require base_path('/views/user/register-success.view.php');
 
