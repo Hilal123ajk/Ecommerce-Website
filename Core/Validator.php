@@ -23,4 +23,15 @@ class Validator {
 
     }
 
+    public static function validPhone($phoneNumber){
+
+        if (preg_match("/^\d{11}$/", $phoneNumber)) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+
+
 }
