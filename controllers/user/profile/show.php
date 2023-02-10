@@ -13,4 +13,10 @@ if(! $user_info)
     header("Location: /");
 }
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+    session_destroy();
+    header("Location: /user-logout");
+}
+
 require 'views/user/profile/show.view.php';

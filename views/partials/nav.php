@@ -6,7 +6,7 @@
 
         <div class="flex items-center">
           <div class="flex-shrink-0">
-            <img class="h-14 w-14" src="src/images/shop-icon.png" alt="Your Company">
+            <img class="h-14 w-14" src="/src/images/shop-icon.png" alt="Your Company">
           </div>
 
           <div class="hidden md:block">

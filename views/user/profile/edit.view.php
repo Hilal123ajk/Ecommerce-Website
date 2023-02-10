@@ -8,9 +8,17 @@
   <!-- Search Bar -->
   <?php require base_path('/views/partials/search.php'); ?>
   
-  <div class="w-3/4 mx-auto my-3 bg-blue-500 border border-blue-400 text-white px-4 py-3 rounded relative hidden" role="alert">
+  <div class="w-3/4 mx-auto my-3 bg-blue-500 border border-blue-400 text-white px-4 py-3 rounded relative <?php if($created_alert === true){echo "";}else{echo "hidden";} ?>" role="alert" id="create_alert">
+
     <strong class="font-bold">Personal Info!</strong>
-    <span class="block sm:inline">Your personal info updated successfully. <a class="font-medium underline" href="/profile">visit profile</a></span>
+    <span class="block sm:inline">Your profile has been created successfully.
+    
+  </div>
+
+  <div class="w-3/4 mx-auto my-3 bg-yellow-500 border border-yellow-400 text-black px-4 py-3 rounded relative <?php if($updated_alert === true){echo "";}else{echo "hidden";} ?>" role="alert" id="update_alert">
+    
+    <strong class="font-bold">Personal Info!</strong>
+    <span class="block sm:inline">Your profile is updated.
     
   </div>
 
@@ -20,7 +28,7 @@
       <div class="px-4 sm:px-0">
         <h3 class="text-2xl font-bold leading-6 text-gray-900">Personal Information</h3>
         <p class="my-4 text-sm text-gray-600">Please note that any personal information provided will be shared with the buyer or seller for the purpose of contact. </p>
-        <p class="text-blue-600 font-medium underline">
+        <p class="text-blue-700 text-lg font-medium underline">
           <a href="/profile?id=<?php echo $_SESSION['loggedin']['id']; ?>">visit profile</a>
         </p>
       </div>
@@ -91,3 +99,23 @@
   <!-- Footer  -->
   <?php require base_path('/views/partials/footer.php'); ?>
 
+<script>
+
+  // Re-usable function for hidding alerts 
+
+function hideAlert(alertId, timeInMS) 
+{
+
+  setTimeout(() => {
+    
+    const alertDiv = document.querySelector(`#${alertId}`);
+    alertDiv.classList.add('hidden');
+    
+  }, timeInMS);
+
+}
+
+  hideAlert('create_alert', 4000);
+  hideAlert('update_alert', 3000);
+
+</script>

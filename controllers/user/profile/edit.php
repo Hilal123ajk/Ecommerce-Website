@@ -69,7 +69,7 @@ require base_path('/Core/Database.php');
 
         ]);
 
-        echo "info created";
+        $created_alert = true;
 
       }else{
 
@@ -85,7 +85,7 @@ require base_path('/Core/Database.php');
 
         ]);
 
-        echo "record updated";
+        $updated_alert = true;
 
       }
       
