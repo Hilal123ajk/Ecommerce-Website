@@ -12,6 +12,19 @@ require base_path('/Core/Database.php');
 
   $user_id = $_GET['id'];
 
+  // User Authentication
+
+  $user_info = $db->query("SELECT * FROM user_info WHERE user_id = :userId", [
+    "userId" => $user_id
+  ])->find();
+
+  if(! $user_info)
+  {
+    abort(404);
+  }
+
+  // User Auth Completed
+
   $name_error = [];
   $email_error = [];
   $address_error = [];

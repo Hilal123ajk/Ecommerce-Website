@@ -4,9 +4,12 @@ require 'Core/Database.php';
 
 $db = new Database();
 
+$user_id = $_GET['id'];
+
 $user_info = $db->query("SELECT * FROM user_info WHERE user_id = :userId", [
-    "userId" => $_GET['id']
+    "userId" => $user_id
 ])->find();
+
 
 if(! $user_info)
 {

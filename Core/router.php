@@ -13,14 +13,14 @@ function routeToController($uri,$routes){
     
     }else{
     
-        abort();
+        abort(404);
     
     }
 }
 
-function abort($code = 404){
+function abort($code){
 
-    http_response_code(404);
+    http_response_code(401);
 
     require "views/{$code}.view.php";
 }
