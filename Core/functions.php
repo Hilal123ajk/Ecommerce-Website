@@ -24,3 +24,21 @@ function isUrl($value)
 {
     return $_SERVER['REQUEST_URI'] === $value;
 }
+
+/**
+ * Function that accepts parameters depends on arguments.
+ * Checks the arguments if all the arguments(array) are empty 
+ * return true.
+ */
+
+function checkConditions(...$conditions) 
+{
+
+    foreach ($conditions as $condition) {
+        if (!empty($condition)) {
+        return false;
+        }
+    }
+    
+    return true;
+}

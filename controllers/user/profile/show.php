@@ -10,6 +10,10 @@ $user_info = $db->query("SELECT * FROM user_info WHERE user_id = :userId", [
     "userId" => $user_id
 ])->find();
 
+$posts = $db->query("SELECT *, DATE_FORMAT(time, '%e %M %Y %l:%i %p') AS formatted_time FROM posts WHERE user_id = :userId ORDER BY time DESC", [
+    "userId" => $user_id
+])->fetchAll();
+
 
 if(! $user_info)
 {

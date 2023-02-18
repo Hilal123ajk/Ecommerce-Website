@@ -8,30 +8,60 @@ class Validator {
     
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             return true;
-        } else{
-            return false;
-        }
+        } 
+
+        return false;
     }
     
-    public static function validName($name){
+    public static function validString($string, $minimumNumber, $exceedLimit){
 
-        if (preg_match("/^[a-zA-Z\s]{3,15}$/", $name)) {
+        $pattern = "/^[0-9a-zA-Z\s]{{$minimumNumber},{$exceedLimit}}$/";
+
+        if (preg_match($pattern, $string)) {
             return true;
-        } else {
-            return false;
         }
+
+        return false;
 
     }
 
-    public static function validPhone($phoneNumber){
+    public static function validDescription($description){
 
-        if (preg_match("/^\d{11}$/", $phoneNumber)) {
+        if (preg_match("/^[\p{L}\p{N}\p{P}\p{S}\s]{25,1500}$/u", $description)) {
             return true;
-        } else {
-            return false;
+        }
+
+        return false;
+    }
+
+    public static function validPhone($phone){
+
+        if (preg_match("/^\d{11}$/", $phone)) {
+            return true;
+        } 
+
+        return false;
+    }
+
+    public static function validDigits($digits, $start, $limit){
+
+        $pattern = "/^\d{{$start},{$limit}}$/";
+
+        if(preg_match($pattern, $digits)){
+            return true;
         }
         
+        return false;
     }
 
+    public static function isValidImage($imageName){        
+
+        if(preg_match("/\.(png|jpe?g)$/", $imageName)) {
+            return true;
+        } 
+
+        return false;
+
+    }
 
 }

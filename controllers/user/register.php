@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $name = trim($user_name);
     $password = trim($user_password);
 
-    if($validator::validName($name) === false){
+    if(! $validator::validString($name, 3, 15) ){
         $name_error['name'] = 'Name Should 3 to 15 characters long';
     }
 

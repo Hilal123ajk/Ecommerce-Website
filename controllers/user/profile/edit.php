@@ -18,11 +18,6 @@ require base_path('/Core/Database.php');
     "userId" => $user_id
   ])->find();
 
-  if(! $user_info)
-  {
-    abort(404);
-  }
-
   // User Auth Completed
 
   $name_error = [];
@@ -32,28 +27,24 @@ require base_path('/Core/Database.php');
 
   if($_SERVER['REQUEST_METHOD'] === 'POST')
   {
-    if($validator::validName($_POST['name']) === false){
-
+    if(! $validator::validString($_POST['name'], 3, 15)){
       $name_error['name'] = 'Name should be 3 to 10 characters long';
-
     }
     if($validator::validEmail($_POST['email']) === false){
-
       $email_error['email'] = 'Invalid Email';
-
     }
 
     if(strlen($_POST['address']) < 10 || strlen($_POST['address']) > 50){
-
       $address_error['address'] = 'Address must be 10 to 50 character long';
-
     }
 
-    if($validator::validPhone($_POST['phone']) === false){
+    if(! $validator::validPhone($_POST['phone'], 11)){
       $phone_error['phone'] = 'Pakistan numbers accepted without hyphen';
     }
 
-    if(empty($name_error) && empty($email_error) && empty($address_error) && empty($phone_error))
+    $validation_completed = checkConditions($name_error, $email_error, $address_error, $phone_error);
+
+    if($validation_completed)
     {
 
       $user_id_exists = $db->query("SELECT * FROM `user_info` WHERE user_id = :userId", [

@@ -1,0 +1,80 @@
+<?php
+
+require 'Core/Validator.php';
+require 'Core/Database.php';
+
+$db = new Database();
+$validator = new Validator();
+
+$name_error = [];
+$price_error = [];
+$description_error = [];
+$location_error = [];
+$phone_error = [];
+$photo_error = [];
+
+if($_SERVER['REQUEST_METHOD'] === 'POST')
+{
+
+    if(! $validator::validString($_POST['laptop-name'], 5, 30)){
+        $name_error['name'] = "Name should 5 to 30 characters long.";
+    }
+
+    if(! $validator::validDigits($_POST['laptop-price'], 3, 6)){
+        $price_error['price'] = "Price must be between thousands & lakhs.";
+    }
+
+    if(! $validator::validDescription($_POST['laptop-description'])){
+        $description_error['details'] = 'Provide give proper details for better approach.';
+    }
+
+    if(! $validator::validString($_POST['laptop-location'], 10, 50)){
+        $location_error['location'] = "Provide proper location.";
+    }
+
+    if(! $validator::validPhone($_POST['user-phone'])){
+        $phone_error['phone'] = 'Pakistani numbers accepted only.';
+    }
+
+    $file = $_FILES['laptop-photo'];
+    $file_name = $file['name'];
+
+    if(! $validator::isValidImage($file_name)){
+        $photo_error['photo'] = 'Only PNG, JPG, JPEG files alowed';
+    } 
+
+    $validation_completed = checkConditions($name_error, $price_error, $description_error, $location_error, $phone_error, $photo_error);
+        
+    if($validation_completed)
+    {
+
+        $db->query("INSERT INTO `posts` (`laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES (:name, :price, :detail, :condition, :location, :phone, :photo, :userId, CURRENT_TIMESTAMP())", [
+
+            "name" => $_POST['laptop-name'],
+            "price" => $_POST['laptop-price'],
+            "detail" => $_POST['laptop-description'],
+            "condition" => $_POST['laptop-condition'],
+            "location" => $_POST['laptop-location'],
+            "phone" => $_POST['user-phone'],
+            "photo" => $file_name,
+            "userId" => 3,
+        ]);
+
+        // Uploading image to src/posts folder.
+
+        $temp_path = $file['tmp_name'];
+        $upload_path = 'src/posts/' . $file_name;
+
+        move_uploaded_file($temp_path, $upload_path);
+
+        echo "post has been created";
+        
+    }
+    
+    
+    
+    
+
+}
+
+require 'views/posts/create.view.php';
