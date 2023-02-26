@@ -73,6 +73,12 @@ CREATE TABLE posts (
 
 -- Adding Dummy Data To Posts 
 
-INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('1', 'Hp core i5', '40000', 'condition used 128gb ram 5th generation', 'Used', 'kalo shah takht bhai', '03367126804', 'laptop.png', '1', current_timestamp());
+INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('1', 'Hp core i5', '40000', 'condition used 128gb ram 5th generation battery timing 5 hours', 'New', 'kalo shah takht bhai', '03367126804', 'hp.jpg', '1', current_timestamp());
 
-INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('2', 'Dell core i3', '27000', 'condition used 128gb ram 3rd generation', 'New', 'sheikh yousaf', '03485566123', 'laptop(1).jpg', '2', current_timestamp());
+INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('2', 'Dell core i3', '27000', 'condition used 128gb ram 3rd generation touch screen 4gb ram', 'Used', 'village sheikh yousaf mardan', '03485566123', 'dell.jpg', '2', current_timestamp());
+
+INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('3', 'Apple macbook pro', '235300', '8-core CPU with 4 performance cores and 4 efficiency cores 10-core GPU 16-core Neural Engine 100GB/s memory bandwidth, 256GB SSD,500 nits brightness Wide color (P3) True Tone technology', 'New', 'block f8 street no 4 home 22 bahria town', '03188456123', 'apple.jpg', '2', current_timestamp());
+
+INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('4', 'Infinix INBook X1 Pro', '46500', 'Core i7 10th Gen 16 GB/512 GB SSD Thin and Light Laptop Stylish & Portable Thin and Light Laptop14 Inch Full HD IPS Display Finger Print', 'Used', 'kalo shah takht bhai mardan', '03268899456', 'infinix.jpg', '3', current_timestamp());
+
+INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('5', 'Surface laptop 4', '169830', 'Choice of 11th Gen Intel® Core Portable 13.5” touchscreen in Ice Blue, with warm, luxurious Alcantara® material.', 'New', 'islamabad phase 8 sector 3', '03361556633', 'microsoft.jpg', '4', current_timestamp());

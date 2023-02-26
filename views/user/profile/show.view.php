@@ -58,55 +58,39 @@
     </div>
 </div>
 
+<div class="post-button text-center mt-12">
+  <a href="/post-create?id=<?= $_SESSION['loggedin']['id'] ?>"><button class="border border-slate-900 py-2 px-4 rounded bg-slate-900 hover:bg-slate-800 font-medium text-white">Create post</button></a>
+</div>
+
 <h2 class="text-3xl sm:text-4xl font-bold m-8">Your Posts</h2>
 
 <section class="grid grid-cols-1 mx-auto gap-3 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 max-w-7xl sm:mx-5">
     
-    <?php foreach ($posts as $post): ?>
-    
+     <?php foreach ($posts as $post): ?>
 
         <div class="max-w-sm mx-auto rounded overflow-hidden shadow-md cursor-pointer border border-gray-300">
-          <img class="w-full" src="/src/posts/<?= $post['laptop_photo'] ?>" alt="Sunset in the mountains">
+          <img class="w-full h-60 object-cover" src="/src/posts/<?= $post['laptop_photo'] ?>" alt="Sunset in the mountains">
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2"><?= $post['laptop_name'] ?></div>
             <p class="text-gray-700 text-base">
+              <?php
 
-               <?php
-               
-                  $detail = $post['laptop_detail'];
-
-                  if(strlen($post['laptop_detail']) > 120) {
-                    $detail = substr($post['laptop_detail'], 0, 120);
-
-                    /**
-                     * strrpos function returns
-                     * the index of the last occuring string
-                     * inside another string. 
-                     **/   
-
-                    $last_space = strrpos($detail, ' ');
-                    
-                    /**
-                     * substr starts from 0 index *
-                     * of detail upto $last_space(117) chars *
-                     * and concatinating three dots.
-                     **/
-                    $detail = substr($detail, 0, $last_space) . '•••';
-                  } 
-                  echo $detail;
+                $detail = limitDetails($post['laptop_detail']);
+                
+                echo $detail;  
               ?>
-
             </p>
             <h3 class="text-base font-bold text-gray-600 mt-2 -mb-3">RS <?= $post['laptop_price'] ?></h3>
           </div>
           <div class="px-6 pt-4 pb-2">
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><?= $post['formatted_time'] ?></span>
+            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><?= $post['laptop_condition'] ?></span>
           </div>
         </div>
 
       <?php endforeach; ?>
     
-  </section>
+</section>
 
 <!-- Footer  -->
 <?php require base_path('/views/partials/footer.php'); ?>

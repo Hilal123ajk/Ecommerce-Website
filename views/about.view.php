@@ -12,9 +12,6 @@
       <h1 class="text-3xl font-bold tracking-tight text-gray-900"><?= $pageHeading; ?></h1>
     </div>
   </header>
-  <main>  
-    
-  </main>
 
   <!-- Footer  -->
   <?php require 'partials/footer.php'; ?>

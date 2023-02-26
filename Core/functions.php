@@ -36,9 +36,42 @@ function checkConditions(...$conditions)
 
     foreach ($conditions as $condition) {
         if (!empty($condition)) {
-        return false;
+            return false;
         }
     }
     
     return true;
+}
+
+/**
+ * This function is used for hidding
+ * the large amount of text
+ * in the post details
+ */
+
+function limitDetails($string)
+{
+
+    $detail = $string;
+
+    if(strlen($string) > 120) {
+        
+        $detail = substr($string, 0, 120);
+
+        /**
+         * strrpos function returns
+         * the index(int) of the last occuring string
+         * inside another string. 
+         **/   
+        $last_space = strrpos($detail, ' ');                
+        /**
+         * substr starts from 0 index 
+         * of detail upto $last_space(117) chars 
+         * and concatinating three dots.
+         **/
+        $detail = substr($detail, 0, $last_space) . '•••';
+    } 
+
+    return $detail;
+
 }

@@ -13,7 +13,8 @@ return [
 '/profile' => 'controllers/user/profile/show.php',
 '/edit-profile' => 'controllers/user/profile/edit.php',
 
-'/post' => 'controllers/posts/create.php',
+'/post' => 'controllers/posts/post-show.php',
+'/post-create' => 'controllers/posts/create.php'
 
 
 

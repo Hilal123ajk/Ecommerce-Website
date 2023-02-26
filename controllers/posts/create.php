@@ -1,5 +1,10 @@
 <?php
 
+if(! $_SESSION['loggedin'])
+{
+    header("Location: /user-login");
+}
+
 require 'Core/Validator.php';
 require 'Core/Database.php';
 
@@ -57,7 +62,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
             "location" => $_POST['laptop-location'],
             "phone" => $_POST['user-phone'],
             "photo" => $file_name,
-            "userId" => 3,
+            "userId" => $_GET['id'],
         ]);
 
         // Uploading image to src/posts folder.

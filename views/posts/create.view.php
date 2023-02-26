@@ -86,9 +86,13 @@
                   </svg>
                   
                   </svg>
-                  <div class="flex text-lg text-gray-600">
+                  
+                    
+                  <div class="flex flex-col items-center justify-center text-lg text-gray-600">
+                    <p class="text-sm text-gray-600 font-medium">Please upload a horizontally oriented image for a better visual appearance.</p>
                     <label for="laptop-photo" class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500">
                       <span>Upload a file</span>
+                      
                       <input id="laptop-photo" name="laptop-photo" type="file" class="sr-only">
                      <p class="my-2 text-red-500 text-sm font-medium"><?= isset($photo_error['photo']) ? $photo_error['photo'] : "" ?></p>
                     </label>

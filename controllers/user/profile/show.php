@@ -1,5 +1,10 @@
 <?php
 
+if(! $_SESSION['loggedin'])
+{
+    header("Location: /user-login");
+}
+
 require 'Core/Database.php';
 
 $db = new Database();
