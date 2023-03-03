@@ -5,11 +5,22 @@ if(! $_SESSION['loggedin'])
     header("Location: /user-login");
 }
 
+$pageHeading = 'Sell Your Laptop';
+
 require 'Core/Validator.php';
 require 'Core/Database.php';
 
 $db = new Database();
 $validator = new Validator();
+
+$complete_profile = $db->query("SELECT * FROM user_info WHERE user_id = :userId", [
+    "userId" => $_SESSION['loggedin']['id']
+])->find();
+
+if(! $complete_profile)
+{
+    header("Location: /edit-profile?id=" . $_SESSION['loggedin']['id']);
+}
 
 $name_error = [];
 $price_error = [];
@@ -30,10 +41,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
     }
 
     if(! $validator::validDescription($_POST['laptop-description'])){
-        $description_error['details'] = 'Provide give proper details for better approach.';
+        $description_error['details'] = 'Provide proper details for better approach.';
     }
 
-    if(! $validator::validString($_POST['laptop-location'], 10, 50)){
+    if(! $validator::validString($_POST['laptop-location'], 10, 150)){
         $location_error['location'] = "Provide proper location.";
     }
 
@@ -76,10 +87,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
         
     }
     
-    
-    
-    
-
 }
 
 require 'views/posts/create.view.php';

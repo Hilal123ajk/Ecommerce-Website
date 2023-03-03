@@ -1,5 +1,7 @@
 <?php
 
+$pageHeading = 'Complete Your Profile';
+
 require base_path('/Core/Validator.php');
 require base_path('/Core/Database.php');
 

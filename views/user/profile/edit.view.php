@@ -7,6 +7,12 @@
 
   <!-- Search Bar -->
   <?php require base_path('/views/partials/search.php'); ?>
+
+  <header class="bg-white shadow mb-5">
+    <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900"><?= $pageHeading; ?></h1>
+    </div>
+  </header>
   
   <div class="w-3/4 mx-auto my-3 bg-blue-500 border border-blue-400 text-white px-4 py-3 rounded relative <?php if($created_alert === true){echo "";}else{echo "hidden";} ?>" role="alert" id="create_alert">
 
@@ -26,8 +32,8 @@
   <div class="md:grid md:grid-cols-3 md:gap-6">
     <div class="md:col-span-1">
       <div class="px-4 sm:px-0">
-        <h3 class="text-2xl font-bold leading-6 text-gray-900">Personal Information</h3>
-        <p class="my-4 text-sm text-gray-600">Please note that any personal information provided will be shared with the buyer or seller for the purpose of contact. </p>
+        <h3 class="text-2xl font-bold leading-6 text-gray-900">Note</h3>
+        <p class="my-4 text-sm text-gray-600">Any personal information provided will be shared with the buyer or seller for the purpose of contact except (email). </p>
         <p class="text-blue-700 text-lg font-medium underline">
           <a href="/profile?id=<?php echo $_SESSION['loggedin']['id']; ?>">visit profile</a>
         </p>

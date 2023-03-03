@@ -75,3 +75,10 @@ function limitDetails($string)
     return $detail;
 
 }
+
+function textWrap($text)
+{
+    $wrapped_text = wordwrap($text, 50, "<br>");
+
+    return $wrapped_text;
+}

@@ -6,8 +6,11 @@
 
   <!-- Search Bar -->
   
-  <h3 class="text-3xl font-bold text-blue-900 text-center my-5">Sell Laptop</h3>
-
+  <header class="bg-white shadow">
+    <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900"><?= $pageHeading; ?></h1>
+    </div>
+  </header>
   <!-- Creating a post  -->
 <div>
   <div class="mx-4 md:w-11/12 md:mx-auto md:my-6 ">

@@ -9,17 +9,44 @@
     </div>
   </header>
 
-  <div class="flex flex-wrap md:flex-no-wrap">
-    <div class="w-full md:w-3/5 order-1 md:order-none bg-gray-200 p-4">
-      <img src="/src/posts/infinix.jpg" alt="">
+  <div class="flex flex-wrap md:flex-no-wrap m-4">
+
+    <div class="w-full md:w-3/5 order-1 md:order-none p-4">
+      <img src="/src/posts/<?= $post['laptop_photo'] ?>" class="rounded-md w-full" alt="laptop-image">
     </div>
-    <div class="w-full md:w-2/5 order-3 md:order-none bg-gray-300 p-4">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa molestiae qui officia architecto aperiam error illum nam laboriosam expedita explicabo voluptas, iste natus eveniet repudiandae et delectus nesciunt velit ipsa! Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni et optio vitae, velit in quae tempore animi placeat voluptates saepe obcaecati ab nemo earum temporibus consequatur! Non dolorem eius repudiandae omnis. Itaque, incidunt repudiandae. Optio quia deserunt accusantium magnam voluptatibus.
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident repellendus eum adipisci! Harum nemo maiores illum officia eaque debitis quos, cumque labore numquam id unde earum magni aut tempora aspernatur nostrum consequuntur explicabo voluptate sequi culpa sapiente voluptas! At deserunt, voluptas quibusdam perferendis, adipisci magni in ex, illum nostrum necessitatibus architecto possimus! Cum ullam excepturi libero fugit officia suscipit molestiae aut eligendi? Et accusamus voluptates voluptate?Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque corrupti omnis vero nulla! Similique minima, accusamus pariatur aliquid officia repellendus? Aliquid harum consectetur possimus debitis iste. Sapiente expedita, facere facilis quam architecto tempora.
+
+    <div class="w-full md:w-2/5 order-3 md:order-none p-4 my-5">
+      <div class="border border-gray-800 rounded p-4">
+        <h3 class="text-lg font-bold text-gray-800"><?= $post['laptop_name'] ?></h3>
+        <h3 class="text-base font-bold text-gray-800">RS <?= $post['laptop_price'] ?></h3>
+        <p class="mt-4 text-gray-700"><?= $post['laptop_location'] ?></p>
+      </div>
+      <div class="border border-gray-800 my-3 p-4 rounded">
+        <h3 class="my-2 text-xl text-gray-800 font-bold">Seller Details</h3>
+        <div class="flex items-center">
+          <img class="h-16 w-16" src="/src/images/profile-avatar<?php if($post['user_gender'] === 'Male') { echo '-male'; } else { echo '-female'; } ?>.png" alt="avatar-image">
+          <h3 class="ml-3 text-base font-semibold"><?= $post['user_name'] ?></h3>
+        </div>
+        <p class="border bg-emerald-900 text-white font-bold rounded mx-auto text-center cursor-pointer w-3/4 my-4 py-2">Chat With Seller</p>
+        <div class="flex items-center justify-center">
+          <img src="/src/images/phone.png" class="h-12 w-12" alt="phone-icon">
+          <h3 class="my-2 text-center ml-4 text-lg font-semibold text-zinc-800"><?= $post['user_phone'] ?></h3>
+        </div>
+      </div>
     </div>
-    <div class="w-full md:w-3/5 order-2 md:order-none bg-blue-400 p-4">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, perspiciatis voluptas illum, quasi asperiores aut vitae dignissimos inventore numquam, a est. Debitis, vero voluptates! Excepturi aut sit deserunt blanditiis ea soluta atque! Repudiandae quibusdam molestias expedita iste facilis, aliquam reiciendis velit neque sequi, earum enim similique harum dignissimos nemo rerum laudantium natus perferendis non libero. Alias voluptas temporibus impedit odit ad porro, reiciendis libero enim nobis officiis dolores aliquam tempore cupiditate a sequi veritatis accusamus, voluptatem nemo minima, quos quia explicabo. Consequatur beatae adipisci, blanditiis voluptas non sequi labore eos aliquid nulla deleniti doloremque quis, perferendis minima repellat? Nesciunt, eaque?
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima, aliquid cumque? Eos voluptates debitis delectus provident quia velit adipisci assumenda totam. Vitae adipisci veniam numquam impedit maxime est dolor eaque magni? Temporibus sint voluptatem optio necessitatibus provident facilis eius praesentium, voluptatibus commodi eligendi perspiciatis consequatur unde voluptas, totam doloremque quasi laudantium odit ipsa deserunt mollitia neque quis! Dolor, dignissimos quae laboriosam blanditiis explicabo minima quia minus, recusandae, in ipsum accusamus! Odit totam nisi amet iure quas alias nam! Laborum praesentium et magnam ratione, sequi reiciendis voluptas enim, autem maxime, expedita nobis soluta quasi commodi incidunt labore similique voluptate consectetur laboriosam!
+
+    <div class="w-full md:w-3/5 order-2 md:order-none border border-gray-500 rounded p-5 my-5">
+      <h3 class="text-2xl font-bold text-gray-900 my-3">Laptop Details</h3>
+      <p class="text-gray-700 leading-7">
+        <?php
+          $text = $post['laptop_detail'];
+
+          $result = textWrap($text);
+
+          echo $result;
+            
+        ?>
+      </p>
     </div>
  </div>
 

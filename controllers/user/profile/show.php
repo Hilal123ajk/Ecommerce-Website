@@ -22,7 +22,7 @@ $posts = $db->query("SELECT *, DATE_FORMAT(time, '%e %M %Y %l:%i %p') AS formatt
 
 if(! $user_info)
 {
-    header("Location: /");
+    header("Location: /edit-profile?id=" . $_SESSION['loggedin']['id']);
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') 

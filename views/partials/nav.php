@@ -14,7 +14,7 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" class="<?php echo isUrl('/') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
 
-              <a href="/about" class="<?php echo isUrl('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
+              <a href="/website-flow" class="<?php echo isUrl('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Website flow</a>
 
             </div>
           </div>
@@ -24,20 +24,9 @@
         
       </div>
 
-      
-      <div class="register-user <?= isset($_SESSION['loggedin']) ? 'hidden' : '' ?>">
+      <?php if($_SESSION['loggedin'] ?? false) : ?>
 
-        
-        <a href="../user-register"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Register</button></a>
-        <a href="/user-login"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Login</button></a>
-
-       
-      </div>
-      
-
-      <div class=" relative rounded-full h-12 w-12 my-2 cursor-pointer <?= isset($_SESSION['loggedin']) ? '' : 'hidden' ?>">
-
-
+      <div class=" relative rounded-full h-12 w-12 my-2 cursor-pointer">
       
         <div>
           <div class="dropdown relative">
@@ -63,6 +52,20 @@
 
       </div>
 
+      <?php else : ?>
+      
+      <div class="register-user">
+
+        
+        <a href="../user-register"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Register</button></a>
+        <a href="/user-login"><button class="my-2 bg-white hover:bg-slate-800 hover:text-white text-gray-800 font-semibold py-2 px-6 border border-gray-500 rounded shadow">Login</button></a>
+
+       
+      </div>
+      
+      <?php endif; ?>
+      
+
 
 
     </div>
@@ -73,7 +76,7 @@
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="/" class="<?php echo isUrl('/') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
 
-        <a href="/about" class="<?php echo isUrl('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> block px-3 py-2 rounded-md text-base font-medium">About</a>
+        <a href="/website-flow" class="<?php echo isUrl('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> block px-3 py-2 rounded-md text-base font-medium">Website Flow</a>
 
       </div>
       
