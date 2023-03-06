@@ -11,6 +11,16 @@
       <h1 class="text-3xl font-bold tracking-tight text-gray-900"><?= $pageHeading; ?></h1>
     </div>
   </header>
+
+  <!-- Alert for creating post completed  -->
+
+  <div class="w-3/4 mx-auto my-3 bg-blue-500 border border-blue-400 text-white px-4 py-3 rounded relative <?php if($post_created === true){echo "";}else{echo "hidden";} ?>" role="alert" id="post_created">
+
+    <strong class="font-bold">Post Created</strong>
+    <span class="block sm:inline">Your post has been created successfully. <a href="/" class="text-black underline">click to see</a>
+    
+  </div>
+
   <!-- Creating a post  -->
 <div>
   <div class="mx-4 md:w-11/12 md:mx-auto md:my-6 ">
@@ -32,7 +42,7 @@
             <div class="grid grid-cols-3 gap-6">
               <div class="col-span-3 sm:col-span-1">
                 <div class="col-span-6 sm:col-span-3">
-                  <label for="laptop-price" class="block text-sm font-medium text-gray-700">Price RS 16000/-</label>
+                  <label for="laptop-price" class="block text-sm font-medium text-gray-700">Price in RS</label>
                   <input type="number" name="laptop-price" id="laptop-price" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" value="<?= $_POST['laptop-price'] ?? "" ?>">
                   <p class="my-2 text-red-500 text-sm font-medium"><?= isset($price_error['price']) ? $price_error['price'] : "" ?></p>
 
@@ -120,3 +130,22 @@
 
   <!-- Footer  -->
   <?php require base_path("/views/partials/footer.php"); ?>
+
+
+<script>
+
+  function hideAlert(alertId, timeInMS) 
+  {
+
+    setTimeout(() => {
+      
+      const alertDiv = document.querySelector(`#${alertId}`);
+      alertDiv.classList.add('hidden');
+      
+    }, timeInMS);
+
+  }
+
+  hideAlert("post_created", 5000);
+
+</script>  

@@ -83,7 +83,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 
         move_uploaded_file($temp_path, $upload_path);
 
-        echo "post has been created";
+        $post_created = true;
         
     }
     

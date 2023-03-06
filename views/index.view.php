@@ -22,6 +22,7 @@
       
       <?php foreach ($posts as $post): ?>
 
+        <a href="/post?id=<?= $post['id'] ?>">
         <div class="max-w-sm mx-auto rounded overflow-hidden shadow-md cursor-pointer border border-gray-300">
           <img class="w-full h-60 object-cover" src="/src/posts/<?= $post['laptop_photo'] ?>" alt="Sunset in the mountains">
           <div class="px-6 py-4">
@@ -41,6 +42,7 @@
             <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"><?= $post['laptop_condition'] ?></span>
           </div>
         </div>
+        </a>
 
       <?php endforeach; ?>
 
