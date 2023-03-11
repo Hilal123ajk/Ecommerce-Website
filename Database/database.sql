@@ -47,6 +47,8 @@ INSERT INTO `user_info` (`id`, `user_name`, `user_email`, `user_address`, `user_
 
 INSERT INTO `user_info` (`id`, `user_name`, `user_email`, `user_address`, `user_city`, `user_phone`, `user_gender`, `user_id`) VALUES ('2', 'Jawad Ali', 'jawad@gmail.com', 'sheikh yousaf mardan', 'Mardan', '03369854721', 'Male', '2');
 
+INSERT INTO `user_info` (`id`, `user_name`, `user_email`, `user_address`, `user_city`, `user_phone`, `user_gender`, `user_id`) VALUES ('3', 'Adnan Wali', 'adnan@gmail.com', 'khat kly bahlola distt charsadda', 'Charsadda', '03369854721', 'Male', '3');
+
 -- Updating user_info record
 
 UPDATE `user_info` SET `user_name` = 'Jawad Ali1234', `user_email` = 'jawad@gmail.com1234', `user_address` = 'afadfadfdfadfadfadf4', `user_city` = 'afdfasdf4', `user_phone` = '033671268045', `user_gender` = 'Female' WHERE `user_info`.`id` = 6;
@@ -82,3 +84,31 @@ INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `lapt
 INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('4', 'Infinix INBook X1 Pro', '46500', 'Core i7 10th Gen 16 GB/512 GB SSD Thin and Light Laptop Stylish & Portable Thin and Light Laptop14 Inch Full HD IPS Display Finger Print', 'Used', 'kalo shah takht bhai mardan', '03268899456', 'infinix.jpg', '3', current_timestamp());
 
 INSERT INTO `posts` (`id`, `laptop_name`, `laptop_price`, `laptop_detail`, `laptop_condition`, `laptop_location`, `user_phone`, `laptop_photo`, `user_id`, `time`) VALUES ('5', 'Surface laptop 4', '169830', 'Choice of 11th Gen Intel® Core Portable 13.5” touchscreen in Ice Blue, with warm, luxurious Alcantara® material.', 'New', 'islamabad phase 8 sector 3', '03361556633', 'microsoft.jpg', '3', current_timestamp());
+
+
+-- Creating messages table 
+
+CREATE TABLE messages (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  sender_id INT(11) NOT NULL,
+  receiver_id INT(11) NOT NULL,
+  message VARCHAR(255) NOT NULL,
+  sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_by INT(11) NOT NULL,
+  laptop_name VARCHAR(255),
+  PRIMARY KEY (id),
+  FOREIGN KEY (sender_id) REFERENCES users(id),
+  FOREIGN KEY (receiver_id) REFERENCES users(id),
+  FOREIGN KEY (created_by) REFERENCES users(id)
+);
+
+
+
+
+-- Inserting dummy messages
+
+INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('1', '2', 'Jawad ali', current_timestamp(), '1', 'Macbook pro.');
+
+INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('2', '1', 'Hi,whatsupp.', current_timestamp(), '2', 'Macbook pro.');
+
+INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('1', '2', 'Im fine.thanks', current_timestamp(), '1', 'Macbook pro.');

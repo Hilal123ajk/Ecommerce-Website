@@ -27,7 +27,7 @@
           <img class="h-16 w-16" src="/src/images/profile-avatar<?php if($post['user_gender'] === 'Male') { echo '-male'; } else { echo '-female'; } ?>.png" alt="avatar-image">
           <h3 class="ml-3 text-base font-semibold cursor-pointer"><?= $post['user_name'] ?></h3>
         </div>
-        <p class="border bg-emerald-900 text-white font-bold rounded mx-auto text-center cursor-pointer w-3/4 my-4 py-2">Chat With Seller</p>
+        <a href="/contact-seller?id=<?= $post['user_id'] ?>"><p class="border bg-emerald-900 text-white font-bold rounded mx-auto text-center cursor-pointer w-3/4 my-4 py-2">Chat With Seller</p></a>
         <div class="flex items-center justify-center">
           <img src="/src/images/phone.png" class="h-12 w-12" alt="phone-icon">
           <h3 class="my-2 text-center ml-4 text-lg font-semibold text-zinc-800"><?= $post['user_phone'] ?></h3>
