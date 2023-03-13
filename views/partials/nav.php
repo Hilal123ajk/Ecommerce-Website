@@ -2,6 +2,7 @@
 
 <nav class="bg-gray-800">
     <div class="flex justify-between mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
       <div class="flex h-16 items-center justify-between">
 
         <div class="flex items-center">
@@ -14,7 +15,9 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" class="<?php echo isUrl('/') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
 
-              <a href="/website-flow" class="<?php echo isUrl('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Website flow</a>
+              <a href="/website-flow" class="<?php echo isUrl('/website-flow') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> px-3 py-2 rounded-md text-sm font-medium">Website flow</a>
+
+              
 
             </div>
           </div>
@@ -26,31 +29,24 @@
 
       <?php if($_SESSION['loggedin'] ?? false) : ?>
 
-      <div class=" relative rounded-full h-12 w-12 my-2 cursor-pointer">
-      
+        <div class="relative flex items-center">
+
         <div>
+          <a href="/chats?id=<?= $_SESSION['loggedin']['id'] ?>">
+            <img src="/src/images/message.png" class="w-8 h-8 filter invert" alt="chat-image">
+          </a>
+        </div>
+          
           <div class="dropdown relative">
-            
-            <img id="dropdownMenuButton2" src="/src/images/login.png" alt="">
-                
+            <img id="dropdownMenuButton2" src="/src/images/login.png" class="w-12 h-12 mx-6 cursor-pointer" alt="login-image">
             <div class="dropdown-menu hidden absolute right-0 z-10 mt-4 w-48 origin-top-right rounded-md bg-slate-700 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                <!-- Active: "bg-gray-100", Not Active: "" -->
-                <a href="/profile?id=<?php echo $_SESSION['loggedin']['id']; ?>" class="block px-4 py-2 text-sm text-slate-100" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
-
-                <a href="/edit-profile?id=<?php echo $_SESSION['loggedin']['id']; ?>" class="block px-4 py-2 text-sm text-slate-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Edit Profile</a>
-
-                
+              <!-- Active: "bg-gray-100", Not Active: "" -->
+              <a href="/profile?id=<?php echo $_SESSION['loggedin']['id']; ?>" class="block px-4 py-2 text-sm text-slate-100" role="menuitem" tabindex="-1" id="user-menu-item-0">Profile</a>
+              <a href="/edit-profile?id=<?php echo $_SESSION['loggedin']['id']; ?>" class="block px-4 py-2 text-sm text-slate-100" role="menuitem" tabindex="-1" id="user-menu-item-1">Edit Profile</a>
             </div>
-
           </div>
         </div>
 
-      
-
-         
-  
-
-      </div>
 
       <?php else : ?>
       
@@ -64,9 +60,6 @@
       </div>
       
       <?php endif; ?>
-      
-
-
 
     </div>
 
@@ -81,11 +74,11 @@
       </div>
       
     </div>
-  </nav>
+</nav>
 
 
 
-  <script>
+<script>
 
 const dropdownButton = document.querySelector("#dropdownMenuButton2");
 const dropdownMenu = document.querySelector(".dropdown-menu");

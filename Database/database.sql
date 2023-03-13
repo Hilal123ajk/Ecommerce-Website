@@ -95,7 +95,6 @@ CREATE TABLE messages (
   message VARCHAR(255) NOT NULL,
   sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   created_by INT(11) NOT NULL,
-  laptop_name VARCHAR(255),
   PRIMARY KEY (id),
   FOREIGN KEY (sender_id) REFERENCES users(id),
   FOREIGN KEY (receiver_id) REFERENCES users(id),

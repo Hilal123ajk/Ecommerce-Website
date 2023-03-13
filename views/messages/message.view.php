@@ -18,7 +18,7 @@
                     <div class="w-full">
                     <div class="relative flex items-center p-3 border-b border-gray-300 bg-gray-100">
                 
-                    <p class="block ml-2 font-medium text-gray-600">Contact for <span class="font-bold text-green-800"><?= $post['laptop_name'] ?></span></p>
+                    <p class="block ml-2 font-bold text-gray-600">Contact Seller</span></p>
                 
                 </div>
                 <div class="relative w-full p-6 overflow-y-auto h-auto max-h-96">

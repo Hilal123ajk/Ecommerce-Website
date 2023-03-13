@@ -12,7 +12,7 @@
   <div class="flex flex-wrap md:flex-no-wrap m-4">
 
     <div class="w-full md:w-3/5 order-1 md:order-none p-4">
-      <img src="/src/posts/<?= $post['laptop_photo'] ?>" class="rounded-md w-full" alt="laptop-image">
+      <img src="/src/posts/<?= $post['laptop_photo'] ?>" class="rounded-md w-full" alt="laptop-image" loading="lazy">
     </div>
 
     <div class="w-full md:w-2/5 order-3 md:order-none p-4 my-5">
@@ -24,12 +24,12 @@
       <div class="border border-gray-800 my-3 p-4 rounded">
         <h3 class="my-2 text-xl text-gray-800 font-bold">Seller Details</h3>
         <div class="flex items-center">
-          <img class="h-16 w-16" src="/src/images/profile-avatar<?php if($post['user_gender'] === 'Male') { echo '-male'; } else { echo '-female'; } ?>.png" alt="avatar-image">
+          <img class="h-16 w-16" src="/src/images/profile-avatar<?php if($post['user_gender'] === 'Male') { echo '-male'; } else { echo '-female'; } ?>.png" alt="avatar-image" loading="lazy">
           <h3 class="ml-3 text-base font-semibold cursor-pointer"><?= $post['user_name'] ?></h3>
         </div>
-        <a href="/contact-seller?id=<?= $post['user_id'] ?>"><p class="border bg-emerald-900 text-white font-bold rounded mx-auto text-center cursor-pointer w-3/4 my-4 py-2">Chat With Seller</p></a>
+        <a href="/contact-seller?user_id=<?= $post['user_id'] ?>"><p class="border bg-emerald-900 text-white font-bold rounded mx-auto text-center cursor-pointer w-3/4 my-4 py-2">Chat With Seller</p></a>
         <div class="flex items-center justify-center">
-          <img src="/src/images/phone.png" class="h-12 w-12" alt="phone-icon">
+          <img src="/src/images/phone.png" class="h-12 w-12" alt="phone-icon" loading="lazy">
           <h3 class="my-2 text-center ml-4 text-lg font-semibold text-zinc-800"><?= $post['user_phone'] ?></h3>
         </div>
       </div>

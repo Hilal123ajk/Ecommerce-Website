@@ -18,5 +18,6 @@ return [
     '/your-post' => 'controllers/posts/my-post.php',
 
     '/contact-seller' => 'controllers/messages/message.php',
+    '/chats' => 'controllers/messages/chats.php',
 
 ];

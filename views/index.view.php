@@ -22,10 +22,10 @@
       
       <?php foreach ($posts as $post): ?>
 
-        <a href="<?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']['id'] === $post['user_id']){echo 'your-post?id=' . $post['id'];}else{echo 'post?id=' . $post['id'];} ?>">
+        <a href="<?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']['id'] === $post['user_id']){echo 'your-post?id=' . $post['id'];}else{echo 'post?id=' . $post['id'];} ?>" loading="lazy">
 
         <div class="max-w-sm mx-auto rounded overflow-hidden shadow-md cursor-pointer border border-gray-300">
-          <img class="w-full h-60 object-cover" src="/src/posts/<?= $post['laptop_photo'] ?>" alt="Sunset in the mountains">
+          <img class="w-full h-60 object-cover" src="/src/posts/<?= $post['laptop_photo'] ?>" alt="Sunset in the mountains" loading="lazy">
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2"><?= $post['laptop_name'] ?></div>
             <p class="text-gray-700 text-base">
