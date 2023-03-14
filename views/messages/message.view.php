@@ -10,6 +10,8 @@
     </div>
   </header>
 
+  <button class="my-5" id="load-button">load data</button>
+
     <div class="message-section md:flex md:flex-row-reverse">
         <div class="p-4 md:w-2/3">
             <div class="container mx-auto my-4">
@@ -23,16 +25,20 @@
                 </div>
                 <div class="relative w-full p-6 overflow-y-auto h-auto max-h-96">
 
-                    <ul class="space-y-2">
+                    <ul class="space-y-2" id="table-data">
 
-                        <?php foreach($messages as $message) : ?>
-                            <li class="flex justify-<?= $message['sender_id'] === $_SESSION['loggedin']['id'] ? 'end' : 'start' ?>">
-                                <div class="relative max-w-xl px-4 py-2 text-white bg-<?= $message['sender_id'] === $_SESSION['loggedin']['id'] ? 'gray' : 'blue' ?>-600 rounded shadow">
-                                    <span class="block"><?= $message['message'] ?></span>
-                                </div>
-                            </li>
-                        <?php endforeach; ?>    
-
+                        <?php if(!isset($messages) || empty($messages)) : ?>
+                            <li class="font-medium my-2 text-gray-800">No messages</li>
+                        <?php else : ?>    
+                            <?php foreach($messages as $message) : ?>
+                                <li class="flex justify-<?= $message['sender_id'] === $_SESSION['loggedin']['id'] ? 'end' : 'start' ?>">
+                                    <div class="relative max-w-xl px-4 py-2 text-white bg-<?= $message['sender_id'] === $_SESSION['loggedin']['id'] ? 'gray' : 'blue' ?>-600 rounded shadow">
+                                        <span class="block"><?= $message['message'] ?></span>
+                                    </div>
+                                </li>
+                            <?php endforeach; ?>    
+                        <?php endif; ?>
+        
                     </ul>
 
                 </div>

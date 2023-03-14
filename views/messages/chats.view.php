@@ -30,7 +30,7 @@
 
           <form action="" method="POST">
             <input type="hidden" name="user-id" value="<?= $user['id'] ?>">
-            <li class="font-bold py-2 px-4 my-2 cursor-pointer rounded-md <?php if($user['user_name'] === $user_name){echo 'text-black bg-white';}else{echo 'text-white bg-gray-800';} ?>">
+            <li class="font-bold py-2 px-4 my-2 cursor-pointer rounded-md <?php if($user['user_name'] === $user_name){echo 'text-black bg-white'; $receiver_id = $user['id'];}else{echo 'text-white bg-gray-800';} ?>">
               <button type="submit" name="submit" class="w-full text-left"><?= $user['user_name'] ?></button>
             </li>
           </form>
@@ -74,10 +74,11 @@
 </body>
 
     
-    <form class="mt-16">
+    <form action="" method="POST" class="mt-16">
       <div class="flex">
-        <input type="text" class="border border-gray-500 p-2 flex-1 mr-2 rounded-md" placeholder="Type your message...">
-        <button class="bg-blue-600 text-white px-4 py-2 rounded">Send</button>
+        <input type="hidden" name="receiver-id" value="<?= $receiver_id ?>">
+        <input type="text" name="message-body" class="border border-gray-500 p-2 flex-1 mr-2 rounded-md" placeholder="Type your message..." autocomplete="off">
+        <button type="submit" name="message" class="bg-blue-600 text-white px-4 py-2 rounded">Send</button>
       </div>
     </form>
   </div>

@@ -99,7 +99,6 @@ require base_path('/Core/Database.php');
     }
 
   }
-  
 
   /**
    * this user is used for edit.view.php 
