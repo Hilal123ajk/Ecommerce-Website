@@ -73,10 +73,10 @@
 
 </body>
 
-    
+<p class="my-2 text-red-600 font-medium"><?= isset($error_message['error']) ? $error_message['error'] : "" ?></p>
     <form action="" method="POST" class="mt-16">
       <div class="flex">
-        <input type="hidden" name="receiver-id" value="<?= $receiver_id ?>">
+      <input type="hidden" name="receiver-id" value="<?= isset($receiver_id) ? $receiver_id : 0 ?>">
         <input type="text" name="message-body" class="border border-gray-500 p-2 flex-1 mr-2 rounded-md" placeholder="Type your message..." autocomplete="off">
         <button type="submit" name="message" class="bg-blue-600 text-white px-4 py-2 rounded">Send</button>
       </div>

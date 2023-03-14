@@ -41,31 +41,42 @@
         
     }
 
+    $error_message = [];
+
     if(isset($_POST['message']))
     {
-        $db->query("INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`) VALUES (:senderId, :receiverId, :message, current_timestamp(), :createdBy);",
-        [        
-            'senderId' => $_SESSION['loggedin']['id'],        
-            'receiverId' => $_POST['receiver-id'],        
-            'message' => $_POST['message-body'],
-            'createdBy' => $_SESSION['loggedin']['id'],
-        ]);
+        if($_POST['receiver-id'] == 0)
+        {
+            $error_message['error'] = 'Please select user';
+        }else
+        {
+            $db->query("INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`) VALUES (:senderId, :receiverId, :message, current_timestamp(), :createdBy);",
+            [        
+                'senderId' => $_SESSION['loggedin']['id'],        
+                'receiverId' => $_POST['receiver-id'],        
+                'message' => $_POST['message-body'],
+                'createdBy' => $_SESSION['loggedin']['id'],
+            ]);
 
-        $messages = $db->query("SELECT * FROM messages
-        WHERE (sender_id = :senderId AND receiver_id = :receiverId)
-        OR (sender_id = {$_POST['receiver-id']} AND receiver_id = {$_SESSION['loggedin']['id']})
-        ORDER BY sent_at ASC;", [
+            $messages = $db->query("SELECT * FROM messages
+            WHERE (sender_id = :senderId AND receiver_id = :receiverId)
+            OR (sender_id = {$_POST['receiver-id']} AND receiver_id = {$_SESSION['loggedin']['id']})
+            ORDER BY sent_at ASC;", [
 
-        'senderId' => $_SESSION['loggedin']['id'],
-        'receiverId' => $_POST['receiver-id']
+            'senderId' => $_SESSION['loggedin']['id'],
+            'receiverId' => $_POST['receiver-id']
 
-        ])->fetchAll();
+            ])->fetchAll();
 
-        $user = $db->query("SELECT * from users WHERE id = :id", [
-            "id" => $_POST['receiver-id']
-        ])->find();
+            $user = $db->query("SELECT * from users WHERE id = :id", [
+                "id" => $_POST['receiver-id']
+            ])->find();
 
-        $user_name = $user['user_name'];
+            $user_name = $user['user_name'];
+            
+        }
+
+        
 
     }
   
