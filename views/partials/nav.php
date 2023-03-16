@@ -15,7 +15,9 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="/" class="<?php echo isUrl('/') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a>
 
-              <a href="/website-flow" class="<?php echo isUrl('/website-flow') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> px-3 py-2 rounded-md text-sm font-medium">Website flow</a>
+              <a href="/user-guide" class="<?php echo isUrl('/user-guide') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Website flow</a>
+
+              <!-- <a href="/user-guide" class="<?php echo isUrl('/website-flow') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> px-3 py-2 rounded-md text-sm font-medium">Website flow</a> -->
 
               
 
@@ -69,7 +71,7 @@
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="/" class="<?php echo isUrl('/') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Home</a>
 
-        <a href="/website-flow" class="<?php echo isUrl('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> block px-3 py-2 rounded-md text-base font-medium">Website Flow</a>
+        <a href="/user-guide" class="<?php echo isUrl('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'; ?> block px-3 py-2 rounded-md text-base font-medium">Website Flow</a>
 
       </div>
       

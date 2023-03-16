@@ -16,7 +16,7 @@
   </div>
 </main>
 
-  </main>
+
 
   <!-- Footer  -->
   <?php require 'partials/footer.php'; ?>

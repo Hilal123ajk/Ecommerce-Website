@@ -10,7 +10,6 @@
     </div>
   </header>
 
-  <button class="my-5" id="load-button">load data</button>
 
     <div class="message-section md:flex md:flex-row-reverse">
         <div class="p-4 md:w-2/3">

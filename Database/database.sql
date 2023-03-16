@@ -106,8 +106,8 @@ CREATE TABLE messages (
 
 -- Inserting dummy messages
 
-INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('1', '2', 'Jawad ali', current_timestamp(), '1', 'Macbook pro.');
+INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('1', '2', 'Jawad ali', current_timestamp(), '1',);
 
-INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('2', '1', 'Hi,whatsupp.', current_timestamp(), '2', 'Macbook pro.');
+INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('2', '1', 'Hi,whatsupp.', current_timestamp(), '2',);
 
-INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('1', '2', 'Im fine.thanks', current_timestamp(), '1', 'Macbook pro.');
+INSERT INTO `messages` ( `sender_id`, `receiver_id`, `message`, `sent_at`, `created_by`, `laptop_name`) VALUES ('1', '2', 'Im fine.thanks', current_timestamp(), '1',);

@@ -4,6 +4,7 @@
   <!-- Navbar -->
   <?php require 'partials/nav.php'; ?>
 
+
   <form action="/search" method="POST" class="flex items-center my-5 mx-7">
     <div class="relative w-full">
         <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -17,17 +18,20 @@
     </button>
   </form>
 
-  <header class="bg-white shadow">
-    
-  </header>
+  <!-- If desired search not found  -->
 
-  <!-- Hero Section Main Page  -->
-  <?php require 'partials/hero-section.php'; ?>
+    <main class="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8 -mt-14 <?php if(isset($posts)){echo 'hidden';}else{echo '';}  ?>">
+        <div class="text-center">
+            <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Laptop not found.</h1>
+            <p class="mt-6 text-base leading-7 text-gray-600">Sorry, we couldn’t find laptop you're looking for.</p>
+            <div class="mt-5 flex items-center justify-center gap-x-6">
+            <a href="/" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Search more</a>
+            </div>
+        </div>
+    </main>
 
-  <h1 class="text-2xl text-center sm:text-3xl lg:text-4xl xl:text-5xl font-medium text-zinc-900">Fresh Items</h1>
-  <br><br><br><br>
+  <!-- Searched posts  -->
 
-  <!-- Cards -->
   <section class="grid grid-cols-1 mx-auto gap-3 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 max-w-7xl sm:mx-5">
       
       <?php foreach ($posts as $post): ?>
@@ -58,7 +62,6 @@
       <?php endforeach; ?>
 
   </section>
-  
 
   <!-- Footer  -->
   <?php require 'partials/footer.php'; ?>

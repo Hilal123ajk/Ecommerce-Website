@@ -3,10 +3,11 @@
 return [
 
     '/' => 'controllers/index.php',
-    '/website-flow' => 'controllers/website.php',
 
     '/user-register' => 'controllers/user/register.php',
     '/user-register/success' => 'controllers/user/register-success.php',
+    '/user-guide' => 'controllers/website.php',
+
     '/user-login' => 'controllers/user/login.php',
     '/user-logout' => 'controllers/user/logout.php',
 
@@ -19,5 +20,7 @@ return [
 
     '/contact-seller' => 'controllers/messages/message.php',
     '/chats' => 'controllers/messages/chats.php',
+
+    '/search' => 'controllers/search.php'
 
 ];

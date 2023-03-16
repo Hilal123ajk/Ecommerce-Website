@@ -12,7 +12,7 @@
     </div>
   </header>
 
-  <div class="post-details m-5 border border-green-700 rounded-md bg-gray-100 md:w-2/3 md:mx-auto">
+  <div class="post-details m-5 rounded-md bg-gray-100 md:w-2/3 md:mx-auto">
     <div class="laptop-image">
         <img src="/src/posts/<?= $post['laptop_photo'] ?>" class="w-full rounded-md" alt="laptop-image">
     </div>
