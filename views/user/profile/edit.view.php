@@ -5,8 +5,6 @@
   <!-- Navbar  -->
   <?php require base_path('/views/partials/nav.php'); ?>
 
-  <!-- Search Bar -->
-  <?php require base_path('/views/partials/search.php'); ?>
 
   <header class="bg-white shadow mb-5">
     <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">

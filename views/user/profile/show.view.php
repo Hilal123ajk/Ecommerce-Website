@@ -5,9 +5,6 @@
 <!-- Navbar  -->
 <?php require base_path('/views/partials/nav.php'); ?>
 
-<!-- Search Bar -->
-<?php require base_path('/views/partials/search.php'); ?>
-
 
 <!-- Profile Info  -->
 
