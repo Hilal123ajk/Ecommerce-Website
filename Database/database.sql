@@ -28,7 +28,7 @@ CREATE TABLE user_info (
   user_address VARCHAR(255) NOT NULL,
   user_city VARCHAR(255) NOT NULL,
   user_phone VARCHAR(255) NOT NULL,
-  user_gender ENUM('Male', 'Female') NOT NULL,
+  user_gender ENUM("Male", "Female", "Agender", "Bigender", "Non-binary", "Genderfluid", "Androgyne", "Demigender", "Neutrois", "Pangender", "Two-Spirit", "Hijra", "Fa'afafine", "Donald Trump", "Muxe", "Bissu", "Bakla", "Aporagender", "Xenogender", "Graygender", "Genderqueer", "Autigender", "Cassgender", "Intergender", "Astergender", "Omnigender") NOT NULL,
   user_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 
